@@ -9,4 +9,4 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
