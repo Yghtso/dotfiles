@@ -28,3 +28,8 @@ window#waybar {
     	color: #ffffff;
     	background-color: #26A65B;
 }
+
+#battery {
+	background-color: white;
+    	color: black;
+}
