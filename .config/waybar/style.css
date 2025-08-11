@@ -1,0 +1,30 @@
+* {
+	font-family: "JetBrainsMono Nerd Font Mono", monospace;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+#workspaces, #window, #clock, #cpu, #memory, #network, #pulseaudio, #battery {
+	padding: 0px 10px;
+    	background-color: #000000;
+    	border-radius: 30px;
+    	margin: 5px 5px;
+    	color: white;
+}
+
+#clock {
+	font-weight: bold;
+}
+
+window#waybar {
+	background: rgba(0, 0, 0, 0);
+}
+
+#workspaces button:hover {
+    	background: rgba(0, 0, 0, 0.3);
+}
+
+#battery.charging, #battery.plugged {
+    	color: #ffffff;
+    	background-color: #26A65B;
+}
