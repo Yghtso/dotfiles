@@ -24,12 +24,24 @@ window#waybar {
     	background: rgba(0, 0, 0, 0.3);
 }
 
-#battery.charging, #battery.plugged {
-    	color: #ffffff;
-    	background-color: #26A65B;
-}
 
 #battery {
 	background-color: white;
     	color: black;
+}
+
+
+#battery.warning {
+    	color: #000000;
+    	background-color: #f96c00;
+}
+
+#battery.critical {
+    	color: #000000;
+    	background-color: #f90010;
+}
+
+#battery.charging, #battery.plugged {
+    	color: #000000;
+    	background-color: #26A65B;
 }
