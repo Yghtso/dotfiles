@@ -9,7 +9,7 @@ menu_options=(
     "  Lock"
 )
 
-chosen=$(print -l $menu_options | wofi --dmenu --lines 3 --width 10% --prompt "Power Menu")
+chosen=$(print -l $menu_options | wofi --dmenu --lines 3 --prompt "Power Menu")
 
 # Exit if nothing was chosen (e.g., user pressed Esc)
 if [[ -z "$chosen" ]]; then
