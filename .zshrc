@@ -118,6 +118,14 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 
+# alfasuite 
+export PROJECT_NAME=alfanotice
+export PROJECT_ENVIRONMENT=demo
+export PROJECT_DEBUG="true"
+export PROJECT_BASE_DIR='/home/yghtso/alfasuite/'
+export SERVER_LETSENCRYPT="${PROJECT_BASE_DIR}configs/client/"
+. /home/yghtso/alfasuite/load-project-commands.sh
+
 # External plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
