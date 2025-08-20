@@ -1,47 +1,55 @@
+/* general settings */
+#waybar {
+    background: rgba(0, 0, 0, 0);
+}
+
+/* base font settings */
 * {
-	font-family: "JetBrainsMono Nerd Font Mono", monospace;
-	font-size: 14px;
-	color: #ffffff;
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+    font-size: 1em;
+    color: #ffffff;
 }
 
-#workspaces, #window, #clock, #cpu, #memory, #network, #pulseaudio, #battery {
-	padding: 0px 10px;
-    	background-color: #000000;
-    	border-radius: 30px;
-    	margin: 5px 2px;
-    	color: white;
+/* modules general styling */
+#workspaces, #clock, #cpu, #memory, #network, #pulseaudio, #battery {
+    padding: 0 0.7em;
+    background-color: #000000;
+    border-radius: 0.5em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    color: white;
 }
 
+/* clock module */
 #clock {
-	font-weight: bold;
+    font-weight: bold;
 }
 
-window#waybar {
-	background: rgba(0, 0, 0, 0);
+/* hyprland workspaces module */
+#workspaces button {
+    border-radius: 0.5em;
+}
+#workspaces button.active, button:hover {
+    background-color: white;
+}
+#workspaces button.active label, button:hover label, button {
+    color: #000000;
 }
 
-#workspaces button:hover {
-    	background: rgba(0, 0, 0, 0.3);
+/* battery module */
+#battery, #battery.warning, #battery.critical, #battery.charging, #battery.plugged {
+    color: #000000;
 }
-
-
 #battery {
-	background-color: white;
-    	color: black;
+    background-color: white;
 }
-
-
 #battery.warning {
-    	color: #000000;
-    	background-color: #f96c00;
+    background-color: #f96c00;
 }
-
 #battery.critical {
-    	color: #000000;
-    	background-color: #f90010;
+    background-color: #f90010;
+}
+#battery.charging, #battery.plugged {
+    background-color: #26A65B;
 }
 
-#battery.charging, #battery.plugged {
-    	color: #000000;
-    	background-color: #26A65B;
-}
