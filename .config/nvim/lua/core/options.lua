@@ -1,68 +1,72 @@
--- lua/core/options.lua
--- For more information, see `:help option-list`
+local M = {}
 
-local opt = vim.opt -- A shorthand for vim.opt
+function M.setup()
+    -- Globals -------------------------------------------------
+    vim.g.mapleader = " "
+    vim.g.maplocalleader = "\\"
 
------------------------------------------------------------
--- Editor Appearance
------------------------------------------------------------
-opt.number = true -- Show line numbers
-opt.relativenumber = true -- Show relative line numbers for easier navigation
-opt.cursorline = true -- Highlight the current line
-opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
-opt.signcolumn = "yes" -- Always show the sign column to prevent screen shifting 
-opt.laststatus = 3 -- Use a global statusline
-opt.showmode = false -- Don't show the mode, lualine will handle it
-opt.pumheight = 10 -- Make the completion menu taller
-opt.pumblend = 10 -- Make the completion menu slightly transparent
-opt.winblend = 0 -- No transparency for floating windows
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
 
--- Configure how certain characters are displayed
-opt.list = true -- Show invisible characters
-opt.listchars = {
-  tab = "» ", -- Character for a tab
-  trail = "·", -- Character for trailing whitespace
-  nbsp = "␣", -- Character for a non-breaking space
-}
+    -- Interface & Display -------------------------------------
+    vim.opt.number = true         -- Show absolute line numbers
+    vim.opt.relativenumber = true -- Show relative line numbers
+    vim.opt.termguicolors = true  -- Enable 24-bit RGB colors
+    vim.opt.cursorline = true     -- Highlight the line under the cursor
+    vim.opt.signcolumn = "yes"    -- Always show the sign column
+    vim.opt.showmode = false      -- Don’t show mode since statusline/plugin likely handles it
+    vim.opt.title = true          -- Set terminal window title based on file info:contentReference[oaicite:0]{index=0}
+    vim.opt.laststatus = 2        -- Always display the status line
 
------------------------------------------------------------
--- Indentation and Formatting
------------------------------------------------------------
-opt.expandtab = true -- Use spaces instead of tabs
-opt.tabstop = 2 -- Number of spaces a tab counts for
-opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-opt.smartindent = true -- Make indenting smart
-opt.autoindent = true -- Copy indent from current line when starting a new line
-opt.wrap = false -- Do not wrap lines
+    -- Search & Navigation -------------------------------------
+    vim.opt.ignorecase = true -- Case-insensitive searching...
+    vim.opt.smartcase = true  -- ...unless uppercase is used
+    vim.opt.wrap = false      -- no line wrap
+    vim.opt.incsearch = true  -- Show search matches as you type
+    vim.opt.hlsearch = true   -- Highlight all search matches
+    vim.opt.scrolloff = 4     -- Keep 4 lines visible above/below cursor
+    vim.opt.sidescrolloff = 8 -- Keep 8 columns visible to the left/right
 
------------------------------------------------------------
--- Search
------------------------------------------------------------
-opt.ignorecase = true -- Ignore case when searching
-opt.smartcase = true -- If you include mixed case in your search, it will be case-sensitive
-opt.incsearch = true -- Show search results as you type
-opt.hlsearch = true -- Highlight all search matches
+    -- Indenting & Tabs ----------------------------------------
+    vim.opt.autoindent = true  -- Maintain indent of current line
+    vim.opt.smartindent = true -- Smart indenting for code
+    vim.opt.expandtab = true   -- Use spaces instead of tabs
+    vim.opt.shiftwidth = 4     -- Width for auto-indent
+    vim.opt.tabstop = 4        -- Treat tab as 4 spaces
 
------------------------------------------------------------
--- File and Buffer Management
------------------------------------------------------------
-opt.undofile = true -- Persist undo history
-opt.swapfile = false -- We don't need a swap file with modern systems
-opt.backup = false -- No backup files
-opt.autowrite = true -- Automatically save before running commands
-opt.confirm = true -- Confirm before quitting with unsaved changes
-opt.splitright = true -- New vertical splits go to the right
-opt.splitbelow = true -- New horizontal splits go to the bottom
+    -- Editing Behavior ----------------------------------------
+    vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+    vim.opt.confirm = true            -- Prompt when quitting with unsaved changes
+    vim.opt.autoread = true           -- Reload file if changed outside Vim
+    vim.opt.autowrite = true          -- Auto-save before actions like :next
+    vim.opt.swapfile = false          -- Disable swapfile
+    vim.opt.backup = false            -- Disable backup file
+    vim.opt.undofile = true           -- Enable persistent undo
+    vim.opt.updatetime = 250          -- Shorten time before triggering CursorHold, etc.
+    vim.opt.timeoutlen = 300          -- Time to wait for key sequence to complete
 
------------------------------------------------------------
--- Performance and Behavior
------------------------------------------------------------
-opt.updatetime = 250 -- Time in ms to wait before writing swap file and triggering CursorHold
-opt.timeoutlen = 300 -- Time in ms to wait for a mapped sequence to complete
-opt.scrolloff = 8 -- Keep 8 lines of context around the cursor when scrolling
-opt.sidescrolloff = 8 -- Keep 8 columns of context around the cursor when scrolling
-opt.mouse = "a" -- Enable mouse support in all modes
-opt.clipboard = "unnamedplus" -- Use the system clipboard for yank and put
-opt.completeopt = "menu,menuone,noselect" -- Set completion options
-opt.inccommand = "split" -- Preview substitutions live in a split window
+    -- Completion & UI Enhancements -----------------------------
+    vim.opt.completeopt = "menu,menuone,noselect" -- Better completion behavior
+    vim.opt.inccommand = "split"                  -- Live preview for :substitute:contentReference[oaicite:1]{index=1}
+    vim.opt.pumheight = 10                        -- Max height for popup menus
+    vim.opt.pumblend = 10                         -- Make popup menu translucent
+    vim.opt.winblend = 0                          -- No transparency for normal windows
+    vim.o.winborder = 'rounded'                   -- Default borders for floating windows
 
+    -- Mouse, Splits & Misc ------------------------------------
+    vim.opt.mouse = "a"       -- Enable mouse for all modes
+    vim.opt.splitright = true -- Vertical splits go to the right
+    vim.opt.splitbelow = true -- Horizontal splits go below
+
+    -- File-type Detection & Plugins ---------------------------
+    vim.opt.syntax = "on" -- Enable syntax highlighting:contentReference[oaicite:3]{index=3}
+    vim.opt.background =
+    "dark"                -- (Optional) Use settings optimized for dark themes:contentReference[oaicite:4]{index=4}
+
+    -- Advanced Completion Suggestions --------------------------
+    vim.opt.wildmenu = true -- Enhanced command-line completion:contentReference[oaicite:6]{index=6}
+    vim.opt.wildmode =
+    "longest:full,full"     -- Show matches as list and complete as much as possible:contentReference[oaicite:7]{index=7}
+end
+
+return M

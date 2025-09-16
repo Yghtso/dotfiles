@@ -1,8 +1,8 @@
-# Alisas Section
+# Alias Section
 
 alias vim=nvim
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
+alias docker-stop-all='docker stop $(docker ps -q)'
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -114,19 +114,14 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+
 # Typing config 
 
 bindkey -v
 
-# alfasuite 
-export PROJECT_NAME=alfaplus
-export PROJECT_ENVIRONMENT=demo
-export PROJECT_DEBUG="true"
-export PROJECT_BASE_DIR='/home/yghtso/alfasuite/'
-export SERVER_LETSENCRYPT="${PROJECT_BASE_DIR}configs/client/"
-. /home/yghtso/alfasuite/load-project-commands.sh
+# alfasuite
 
-alias docker-stop-all='docker stop $(docker ps -q)'
+. $HOME/.alfasuite.conf.zsh
 
 # External plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
